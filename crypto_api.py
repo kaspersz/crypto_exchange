@@ -39,3 +39,34 @@ def getPriceOfAnotherMethod(coinData, currency):
     return dataCurr[id][currency]
 
 print(getPriceOfAnotherMethod(coinData, "usd"))
+
+
+print("WITAMY W CRYPTO_EXCHANGE")
+while True:
+    cryptoSymbol = input("Wybierz symbol krypto do kupienia lub exit zeby zakonczyc")
+    if cryptoSymbol == "exit":
+        break
+    chosenCoin = findCoinBySymbol(cryptoSymbol)
+    if chosenCoin == None:
+        print("Wybrana kryptowaluta nie istnieje")
+        continue
+    else:
+        print("Wybrales kryptowalute:" , chosenCoin["id"])
+        currency = input("\nWybierz w jakiej walucie chcesz kupic: ")
+        pricePerUnit = getPriceOfAnotherMethod(chosenCoin, currency)
+        print("Cena jednej sztuki w", currency," to", pricePerUnit)
+        number = input("Ile chcesz kupic? ")
+        finalPrice = float(pricePerUnit) * float(number)
+        print("Koszt zakupu danej ilosci kryptowaluty wynosi:", finalPrice)
+        answer = input("Potwierdz jesli chcesz zakupic i wyjsc wpisujac 1, jesli chcesz zakupic i kontynowac zakupy wcisnij 2, 3 jesli chcesz zrezygnowac z zakupu, exit jesli chcesz opuscic kantor")
+        if input == 1: 
+            print("Dziekuje za zakupy")
+            break
+        elif input==2:
+            print("dziekuje za zakupy, zaraz zostaniesz przeniesiony do menu wyboru kryptowaluty")
+        elif input==3:
+            continue
+        elif input == "exit":
+            break
+
+
